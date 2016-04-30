@@ -20,6 +20,8 @@ public class Database {
     static public RetrieveWindow retrieveWindow;
     static public AddWindow addWindow;
     static public UpdateWindow updateWindow;
+    static public DeleteWindow deleteWindow;
+    static public AdminDeleteWindow adminDeleteWindow;
     
     public Database() {
         loginWindow = new LoginWindow(this);
@@ -27,12 +29,15 @@ public class Database {
         retrieveWindow = new RetrieveWindow(this);
         addWindow = new AddWindow(this);
         updateWindow = new UpdateWindow(this);
+        deleteWindow = new DeleteWindow(this);
+        adminDeleteWindow = new AdminDeleteWindow(this);
         loginWindow.setLocationRelativeTo(null);
         loginWindow.setVisible(true);
         menuWindow.setVisible(false);
         retrieveWindow.setVisible(false);
         addWindow.setVisible(false);
         updateWindow.setVisible(false);
+        adminDeleteWindow.setVisible(false);
     }
     
     public void connect(String u, String p) {
@@ -76,6 +81,20 @@ public class Database {
         updateWindow.setVisible(true);
         updateWindow.setLocationRelativeTo(menuWindow);
         updateWindow.setLocation(menuWindow.getX()+menuWindow.getWidth(),
+                menuWindow.getY());
+    }
+    
+    static void deleteWindowOpen() {
+        deleteWindow.setVisible(true);
+        deleteWindow.setLocationRelativeTo(menuWindow);
+        deleteWindow.setLocation(menuWindow.getX()+menuWindow.getWidth(),
+                menuWindow.getY());
+    }
+    
+    static void adminDeleteWindowOpen() {
+        adminDeleteWindow.setVisible(true);
+        adminDeleteWindow.setLocationRelativeTo(menuWindow);
+        adminDeleteWindow.setLocation(menuWindow.getX()+menuWindow.getWidth(),
                 menuWindow.getY());
     }
     
