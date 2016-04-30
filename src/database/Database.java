@@ -15,18 +15,24 @@ public class Database {
     static String query;
 
     static ResultSet rs = null;
-    static public LoginWindow login;
-    static public MainMenu menu;
-    static public RetrieveWindow retrieve;
+    static public LoginWindow loginWindow;
+    static public MainMenu menuWindow;
+    static public RetrieveWindow retrieveWindow;
+    static public AddWindow addWindow;
+    static public UpdateWindow updateWindow;
     
     public Database() {
-        login = new LoginWindow(this);
-        menu = new MainMenu(this);
-        retrieve = new RetrieveWindow(this);
-        login.setLocationRelativeTo(null);
-        login.setVisible(true);
-        menu.setVisible(false);
-        retrieve.setVisible(false);
+        loginWindow = new LoginWindow(this);
+        menuWindow = new MainMenu(this);
+        retrieveWindow = new RetrieveWindow(this);
+        addWindow = new AddWindow(this);
+        updateWindow = new UpdateWindow(this);
+        loginWindow.setLocationRelativeTo(null);
+        loginWindow.setVisible(true);
+        menuWindow.setVisible(false);
+        retrieveWindow.setVisible(false);
+        addWindow.setVisible(false);
+        updateWindow.setVisible(false);
     }
     
     public void connect(String u, String p) {
@@ -36,26 +42,41 @@ public class Database {
 //                    "jdbc:mysql://triton.towson.edu:3360/swanga1db", u, p);
 //            queryStatement = conn.createStatement();
 //            JOptionPane.showMessageDialog(login, "Connected to Database");
-            loginClose();
-            menuOpen();
+            loginWindowClose();
+            menuWindowOpen();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(login, "Failed to Connect");
+            JOptionPane.showMessageDialog(loginWindow, "Failed to Connect");
         }
     }
     
-    static void loginClose() {
-        login.dispose();
+    static void loginWindowClose() {
+        loginWindow.dispose();
     }
     
-    static void menuOpen() {
-        menu.setLocationRelativeTo(null);
-        menu.setVisible(true);
+    static void menuWindowOpen() {
+        menuWindow.setLocationRelativeTo(null);
+        menuWindow.setVisible(true);
     }
     
-    static void retrieveOpen() {
-        retrieve.setVisible(true);
-        retrieve.setLocationRelativeTo(menu);
-        retrieve.setLocation(menu.getX()+menu.getWidth(), menu.getY());
+    static void retrieveWindowOpen() {
+        retrieveWindow.setVisible(true);
+        retrieveWindow.setLocationRelativeTo(menuWindow);
+        retrieveWindow.setLocation(menuWindow.getX()+menuWindow.getWidth(), 
+                menuWindow.getY());
+    }
+    
+    static void addWindowOpen() {
+        addWindow.setVisible(true);
+        addWindow.setLocationRelativeTo(menuWindow);
+        addWindow.setLocation(menuWindow.getX()-menuWindow.getWidth()*3, 
+                menuWindow.getY());
+    }
+    
+    static void updateWindowOpen() {
+        updateWindow.setVisible(true);
+        updateWindow.setLocationRelativeTo(menuWindow);
+        updateWindow.setLocation(menuWindow.getX()+menuWindow.getWidth(),
+                menuWindow.getY());
     }
     
     public DefaultTableModel buildTableModel() throws SQLException {
@@ -116,4 +137,5 @@ public class Database {
     public static void main(String[] args) {
         new Database();
     }
+
 }
