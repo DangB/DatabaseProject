@@ -401,8 +401,18 @@ public class RetrieveWindow extends javax.swing.JFrame {
         jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Outstanding Orders"));
 
         jButton4.setText("Unpaid");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Paid");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -1161,7 +1171,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
             String c = jTextField3.getText();
             String d1 = jTextField9.getText();
             String d2 = jTextField14.getText();
-            
+                        
             switch (p) {
                 case "Order_ID":
                     database.statementDateSwitch("orders", p, c, d1, d2);
@@ -1177,10 +1187,11 @@ public class RetrieveWindow extends javax.swing.JFrame {
                             "order_id", p, c, d1, d2);
                     break;
                 case "Employee_ID":
-                    database.statementDateSwitch("orders", "fufills", "order_id",
+                    database.statementDateSwitch("orders", "fulfills", "order_id",
                             p, c, d1, d2);
                     break;
             }
+            if(!c.isEmpty()||!d1.isEmpty()||!d2.isEmpty())
             jTable7.setModel(database.buildTableModel());
         } catch (SQLException ex) {
             Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
@@ -1197,6 +1208,27 @@ public class RetrieveWindow extends javax.swing.JFrame {
             Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try {
+            // TODO add your handling code here:
+            database.createBasicStatement("orders", "paid", "0");
+            jTable7.setModel(database.buildTableModel());
+        } catch (SQLException ex) {
+            Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            database.createBasicStatement("orders", "paid", "1");
+            jTable7.setModel(database.buildTableModel());
+        } catch (SQLException ex) {
+            Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
