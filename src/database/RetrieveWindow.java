@@ -70,6 +70,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
         jPanel10 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
@@ -443,7 +444,12 @@ public class RetrieveWindow extends javax.swing.JFrame {
 
         jLabel3.setText("To");
 
-        jButton7.setText("jButton7");
+        jButton7.setText("Search");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -487,15 +493,27 @@ public class RetrieveWindow extends javax.swing.JFrame {
 
         jTextField8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        jButton3.setText("Search");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
         jPanel10Layout.setHorizontalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(72, 72, 72)
-                .addComponent(jLabel4)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(jButton3)))
                 .addContainerGap(178, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
@@ -505,7 +523,9 @@ public class RetrieveWindow extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap())
         );
 
         jPanel6.add(jPanel10, "Containing_Item");
@@ -568,12 +588,17 @@ public class RetrieveWindow extends javax.swing.JFrame {
         jScrollPane9.setViewportView(jTable9);
 
         jButton11.setText("Retrieve");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
 
         jPanel15.setLayout(new java.awt.CardLayout());
 
         jPanel16.setBorder(javax.swing.BorderFactory.createTitledBorder("Simple Search"));
 
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Service ID", "Location", "Type", "Customer No" }));
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Service_ID", "Location", "Type", "Customer_No" }));
 
         jButton12.setText("Search");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -660,7 +685,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
 
         jPanel15.add(jPanel17, "Search_By_Date&Time");
 
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple Search", "Date&Time" }));
+        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple Search", "Date" }));
         jComboBox12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox12ActionPerformed(evt);
@@ -718,6 +743,11 @@ public class RetrieveWindow extends javax.swing.JFrame {
         jScrollPane10.setViewportView(jTable10);
 
         jButton14.setText("Retrieve");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jPanel18.setLayout(new java.awt.CardLayout());
 
@@ -763,7 +793,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
 
         jPanel20.setBorder(javax.swing.BorderFactory.createTitledBorder("Search by Price"));
 
-        jLabel11.setText("Date From:");
+        jLabel11.setText("F:rom");
 
         jButton16.setText("Search");
         jButton16.addActionListener(new java.awt.event.ActionListener() {
@@ -772,7 +802,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setText("Date To:");
+        jLabel12.setText("To:");
 
         javax.swing.GroupLayout jPanel20Layout = new javax.swing.GroupLayout(jPanel20);
         jPanel20.setLayout(jPanel20Layout);
@@ -781,7 +811,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
             .addGroup(jPanel20Layout.createSequentialGroup()
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel20Layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
+                        .addGap(218, 218, 218)
                         .addComponent(jButton16))
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addGap(65, 65, 65)
@@ -792,7 +822,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
                         .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(110, Short.MAX_VALUE))
+                .addContainerGap(162, Short.MAX_VALUE))
         );
         jPanel20Layout.setVerticalGroup(
             jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -812,7 +842,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
 
         jPanel21.setBorder(javax.swing.BorderFactory.createTitledBorder("Search by Supplier"));
 
-        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supplier ID", "Name" }));
+        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Supplier_ID", "Name" }));
 
         jButton17.setText("Search");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -850,7 +880,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
 
         jPanel18.add(jPanel21, "Search_By_Supplier");
 
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple Search", "Price", "Supplier", " " }));
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Simple Search", "Price", "Supplier", "" }));
         jComboBox13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox13ActionPerformed(evt);
@@ -867,7 +897,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
                         .addGap(24, 24, 24)
                         .addComponent(jComboBox13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 658, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1093,11 +1123,44 @@ public class RetrieveWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        // TODO add your handling code here:
+        String c = (String) jComboBox10.getSelectedItem();
+        String s = jTextField8.getText();
+        try {
+            if (!s.isEmpty()) {
+             switch (c) {
+                case "Service_ID":
+                    database.createBasicStatement("services", c, s);
+                    break;
+                case "Location":
+                    database.createBasicStatement("services", c, s);
+                    break;
+                case "Type":
+                    database.createBasicStatement("services", c, s);
+                    break;
+                case "Customer_No":
+                    database.createBasicStatement("services", c, s);
+                    break;
+             }
+             jTable9.setModel(database.buildTableModel());
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
+       String d1 = jTextField12.getText();
+       String d2 = jTextField15.getText();
+       
+        try {
+            database.statementSwitch("services", "date", d1, "date", d2);
+            jTable9.setModel(database.buildTableModel());
+        } catch (SQLException ex) {
+            Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+       
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
@@ -1115,11 +1178,37 @@ public class RetrieveWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox12ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        // TODO add your handling code here:
+        String c = (String) jComboBox11.getSelectedItem();
+        String s = jTextField13.getText();
+        if (!s.isEmpty()) {
+            try {
+                switch(c) {
+                    case "Item_No":
+                        database.createBasicStatement("item", c, s);
+                        break;
+                    case "Item_Type":
+                        database.createBasicStatement("item", c, s);
+                        break;
+                }
+                jTable10.setModel(database.buildTableModel());
+            } catch (SQLException ex) {
+                Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }       
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
+        String s1 = jTextField16.getText();
+        String s2 = jTextField17.getText();
+        if (!s1.isEmpty() && !s2.isEmpty()) {
+            try {
+                database.statementSwitch("item", "price", s1, "price", s2);
+                jTable10.setModel(database.buildTableModel());
+            } catch (SQLException ex) {
+                Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jComboBox13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox13ActionPerformed
@@ -1141,6 +1230,24 @@ public class RetrieveWindow extends javax.swing.JFrame {
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
+        String c = (String) jComboBox14.getSelectedItem();
+        String s = jTextField18.getText();
+        if (!s.isEmpty()) {
+            try {
+                switch (c) {
+                    case "Supplier_ID":
+                        database.createBasicStatement("item", c, s);
+                        break;
+                    case "Supplier_Name":
+                        database.createTwoTableStatement("item", "supplier", "supplier_id",
+                                c, s);
+                        break;
+                }
+                jTable10.setModel(database.buildTableModel());
+            } catch (SQLException ex) {
+                Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -1230,6 +1337,51 @@ public class RetrieveWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        String s1 = jTextField4.getText();
+        String s2 = jTextField7.getText();
+        
+        try {
+            database.statementSwitch("orders", "total_cost", s1, "total_cost", s2);
+            jTable7.setModel(database.buildTableModel());
+        } catch (SQLException ex) {
+            Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        String s = jTextField8.getText();
+        if (!s.isEmpty()) {
+            try {
+            database.createTwoTableStatement("orders", "consist_of", "order_id", "item_no", s);
+            jTable7.setModel(database.buildTableModel());
+        } catch (SQLException ex) {
+            Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        try {
+            database.createSelectAllStatement("services");
+            jTable9.setModel(database.buildTableModel());
+        } catch (SQLException ex) {
+            Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        try {
+            database.createSelectAllStatement("item");
+            jTable10.setModel(database.buildTableModel());
+        } catch (SQLException ex) {
+            Logger.getLogger(RetrieveWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton14ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1278,6 +1430,7 @@ public class RetrieveWindow extends javax.swing.JFrame {
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
